@@ -28,3 +28,55 @@ operation(
   1,
   2
 );
+
+// Metodos en arrays
+const names = ["Miguel", "Juan", "Alex"];
+
+// forEach: es inmutable, no modifica el array
+names.forEach((name) => console.log(name));
+names.forEach((name) => console.log(name.toUpperCase()));
+console.log(names);
+
+// sort si es mutables
+names.sort();
+console.log("Sort mutable", names);
+
+// map: es inmutable, retorna un nuevo array con valores modificados
+const namesUpper = names.map((name) => name.toUpperCase());
+console.log(namesUpper);
+
+// reduce: recorre los elementos pero realiza un acumulado y se obtiene un solo resultado
+const numbers = [5, 4, 7, 1, 10];
+const total = numbers.reduce((acc, number) => acc + number, 0);
+console.log({ total });
+
+
+// Clases y objetos
+class Drink{
+  constructor(name){
+    this.name = name;
+  }
+
+  info(){
+    return `la bebida es: ${this.name}`
+  }
+}
+
+const drink = new Drink('agua');
+console.log(drink);
+console.log(drink.info());
+
+// Herencia
+class Beer extends Drink{
+  constructor(name, alcohol){
+    super(name);
+    this.alcohol = alcohol;
+  }
+
+  info(){
+    return `${super.info()} ${this.alcohol}`
+  }
+}
+
+const beer = new Beer('erdinger', 8.5);
+console.log(beer.info());
